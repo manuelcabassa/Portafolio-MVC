@@ -18,19 +18,12 @@ namespace Portafolio.Controllers
 
         public IActionResult Index()
         {
-
-            //ViewBag.Nombre = "Manuel Cabassa";
-
-            //Persona persona = new Persona();
-            //persona.Nombre = "Manuel Cabassa";
-            //persona.Edad = 32;
-
-            //var persona = new Persona() { Nombre = "Manuel Cabassa", Edad = 32 };
-            //var repositorioProyectos = new RepositorioProyectos();
+            _logger.LogInformation("Este es un mensaje de log");
             var proyectos = repositorioProyectos.ObtenerProyectos().Take(4).ToList();
             var model = new HomeIndexViewModel()
             {
-                Proyecto = proyectos
+                Proyecto = proyectos,
+                
             };
 
             return View(model);
